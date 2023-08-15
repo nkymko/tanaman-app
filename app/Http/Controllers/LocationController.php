@@ -64,7 +64,7 @@ class LocationController extends Controller
         $plants = Plant::where('location_id', $location->id)->get();
 
         return view('tanaman.index', [
-            'title' => 'Data Tanaman',
+            'title' => $location->nama,
             'style' => 'indexTanaman',
             'plants' => $plants,
         ]);

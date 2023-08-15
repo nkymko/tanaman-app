@@ -64,7 +64,7 @@ class CategoryController extends Controller
         $plants = Plant::where('category_id', $category->id)->get();
 
         return view('tanaman.index', [
-            'title' => 'Data Tanaman',
+            'title' => $category->nama,
             'style' => 'indexTanaman',
             'plants' => $plants,
         ]);

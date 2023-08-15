@@ -50,9 +50,9 @@
                                 <tr>
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $plant->nama }}</td>
-                                    <td>{{ $plant->latin }}</td>
                                     <td>{{ $plant->category->nama }}</td>
                                     <td>{{ substr($plant->khasiat, 0, 150) . '. . .' }}</td>
+                                    <td>{{ $plant->latin }}</td>
                                     <td>{{ substr($plant->deskripsi, 0, 150) . '. . .' }}</td>
                                     {{-- <td><img src="{{ asset('storage/'. $plant->thumbnail) }}" alt="pict" width="100px"></td> --}}
                                     <td>{{ QrCode::generate(url('/plants/' . $plant->uniqid)) }}</td>
@@ -60,7 +60,7 @@
                                     <td>
                                         <div class="group" style="display: flex; gap:3px;">
                                             <a href="{{ route('plants.show', $plant->uniqid) }}" class="btn btn-info text-light"><i class="fas fa-eye"></i></a>
-                                            <a href="{{ route('plants.edit', $plant->uniqid) }}" class="btn btn-warning text-light"><i class="fas fa-pencil"></i></a> 
+                                            <a href="{{ route('plants.edit', $plant->uniqid) }}" class="btn btn-warning text-light"><i class="fas fa-pencil"></i></a>
                                             <form action="{{ route('plants.destroy', $plant->uniqid) }}" method="post">
                                                 @method('delete')
                                                 @csrf
