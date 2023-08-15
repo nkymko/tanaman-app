@@ -177,3 +177,22 @@ aside .sidebar a:hover span {
     -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
     border: none;
 }
+
+.card-title{
+    font-size: 14px;
+}
+
+.col-md-3 .card{
+    transition: 0.3s ease-in;
+}
+
+.sum{
+    font-size: 40px;
+    padding: 10px 20px;
+    font-weight: 700;
+}
+
+.col-md-3 a:hover .card{
+    filter: brightness(85%);
+    transition: 0.3s ease-in;
+}

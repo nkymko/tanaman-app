@@ -14,18 +14,18 @@
     --color-background: #fff;
 }
 
-html {
+html{
     font-size: 14px;
 }
 
-* {
+*{
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Montserrat", sans-serif;
+body{
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.88rem;
     background: var(--color-background);
     user-select: none;
@@ -33,7 +33,8 @@ body {
     color: var(--color-dark);
 }
 
-a {
+
+a{
     color: var(--color-dark);
     text-decoration: none;
 }
@@ -42,81 +43,81 @@ img {
     display: block;
 }
 
-h1 {
+h1{
     font-weight: 800;
     font-size: 1.8rem;
 }
 
-h2 {
+h2{
     font-size: 1.4rem;
 }
 
-h3 {
+h3{
     font-size: 0.87rem;
 }
 
-h4 {
+h4{
     font-size: 0.8rem;
 }
 
-h5 {
+h5{
     font-size: 0.77rem;
 }
 
-small {
+small{
     font-size: 0.75rem;
 }
 
-.profile-photo {
+.profile-photo{
     width: 2.8rem;
     height: 2.8rem;
     border-radius: 50%;
     overflow: hidden;
 }
 
-p {
+p{
     color: var(--color-dark-variant);
 }
 
-b {
+b{
     color: var(--color-dark);
 }
 
-aside {
+aside{
     height: 100%;
 }
 
-aside .top {
+aside .top{
     background: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 1.4rem;
 }
-aside .logo {
+ aside .logo{
     display: flex;
     gap: 0.8rem;
     width: 100%;
     justify-content: center;
-}
+ }
 
-aside .close {
+ aside .close{
     display: none;
-}
+ }
 
-/* SIDEBAR */
-aside .sidebar {
+ /* SIDEBAR */
+aside .sidebar{ 
     flex-direction: column;
     height: 100%;
     position: relative;
     top: 3rem;
 }
 
-aside h3 {
+aside h3{
     font-weight: 500;
 }
 
-aside .sidebar a {
+aside .sidebar a{
     display: flex;
     color: var(--color-info-dark);
     margin-left: 2rem;
@@ -127,16 +128,16 @@ aside .sidebar a {
     transition: all 300ms ease;
 }
 
-aside .sidebar a span {
+aside .sidebar a span{
     font-size: 1.6rem;
     transition: all 300ms ease;
 }
 
-aside .sidebar a:last-child {
+aside .sidebar a:last-child{
     margin-top: 2rem;
 }
 
-aside .sidebar a:last-child::after {
+aside .sidebar a:last-child::after{
     content: "";
     width: 80%;
     height: 2px;
@@ -145,7 +146,7 @@ aside .sidebar a:last-child::after {
     top: -10px;
 }
 
-aside .sidebar a.active {
+aside .sidebar a.active{
     background: var(--color-light);
     color: var(--color-primary);
     margin-left: 0;
@@ -158,22 +159,15 @@ aside .sidebar a.active::before {
     background: var(--color-primary);
 }
 
-aside .sidebar a.active span {
+aside .sidebar a.active span{
     color: var(--color-primary);
     margin-left: calc(1rem - 3px);
 }
 
-aside .sidebar a:hover {
+aside .sidebar a:hover{
     color: var(--color-primary);
 }
 
-aside .sidebar a:hover span {
+aside .sidebar a:hover span{
     margin-left: 1rem;
-}
-
-.card-form {
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
-    border: none;
 }

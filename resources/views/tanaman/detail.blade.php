@@ -19,9 +19,12 @@
                     </div>
             
                     <div class="bottom">
+                      <p><span>Tipe</span>: {{ $data->category->nama }}</p>
+                      <p><span>Lokasi</span>: {{ $data->location->nama }}</p>
                       <p class="kelas"><span>Khasiat:</span> {{ $data->khasiat }}</p>
-                      <p class="agama"><span>Deskripsi:</span> Lorem Ipsum dolor sit amet</p>
-                      <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->generate(url('/plants/' . $data->uniqid))) }}" alt="plantqr">
+                      <p class="agama"><span>Deskripsi:</span> {{ $data->deskripsi }}</p>
+                      {{--<img style="float: right" src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->generate(url('/plants/' . $data->uniqid))) }}" alt="plantqr"> --}}
+                      <div style="float:right">{{ QrCode::generate(url('/plants/' . $data->uniqid)) }}</div>
                     </div>
                   </div>
             </div>
@@ -29,7 +32,7 @@
     
           <!-- bg -->
           <div class="bg-img">
-            <img src="https://timur.jakarta.go.id/frontend/assets/img/logo/opsi2.jpg">
+            <img style="opacity:0.2" src="https://timur.jakarta.go.id/frontend/assets/img/logo/opsi2.jpg">
           </div>
         </div>
     </div>

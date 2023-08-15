@@ -16,7 +16,7 @@
                             <p>Index Data</p>
                         </div>
                         <div class="button">
-                            <a href="{{ route('plants.create') }}" class="btn btn-success">Tambah data tanaman</a>
+                            <a href="{{ route('locations.create') }}" class="btn btn-success">Tambah Lokasi</a>
                         </div>
                     </div>
 
@@ -31,37 +31,24 @@
                         <table id="myTable" class="table cell-border">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <th width="5%">No.</th>
                                     <th>Nama</th>
-                                    <th>Kategori</th>
-                                    <th>Khasiat</th>
-                                    <th>Latin</th>
-                                    <th>Deskripsi</th>
-                                    <th>QrCode</th>
-                                    {{-- <th>QRCode</th> --}}
-                                    <th>Aksi</th>
+                                    <th width="10%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
                                     $i = 1;
                                 @endphp
-                                @foreach ($plants as $plant)
+                                @foreach ($locations as $location)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                                    <td>{{ $plant->nama }}</td>
-                                    <td>{{ $plant->latin }}</td>
-                                    <td>{{ $plant->category->nama }}</td>
-                                    <td>{{ substr($plant->khasiat, 0, 150) . '. . .' }}</td>
-                                    <td>{{ substr($plant->deskripsi, 0, 150) . '. . .' }}</td>
-                                    {{-- <td><img src="{{ asset('storage/'. $plant->thumbnail) }}" alt="pict" width="100px"></td> --}}
-                                    <td>{{ QrCode::generate(url('/plants/' . $plant->uniqid)) }}</td>
-                                    {{-- <td><img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->generate(url('/plants/' . $plant->uniqid))) }}" alt="plantqr"></td> --}}
+                                    <td>{{ $location->nama }}</td>
                                     <td>
                                         <div class="group" style="display: flex; gap:3px;">
-                                            <a href="{{ route('plants.show', $plant->uniqid) }}" class="btn btn-info text-light"><i class="fas fa-eye"></i></a>
-                                            <a href="{{ route('plants.edit', $plant->uniqid) }}" class="btn btn-warning text-light"><i class="fas fa-pencil"></i></a> 
-                                            <form action="{{ route('plants.destroy', $plant->uniqid) }}" method="post">
+                                            <a href="{{ route('locations.show', $location->id) }}" class="btn btn-info text-light"><i class="fas fa-eye"></i></a>
+                                            <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-warning text-light"><i class="fas fa-pencil"></i></a>
+                                            <form action="{{ route('locations.destroy', $location->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger text-light" onclick="return confirm('Hapus data?')"><i class="fas fa-trash"></i></button>

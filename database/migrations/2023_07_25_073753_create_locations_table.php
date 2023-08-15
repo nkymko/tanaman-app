@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('plants', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->foreignId('category_id')->onDelete('cascade');
-            $table->foreignId('location_id')->onDelete('cascade');
-            $table->text('khasiat')->nullable();
-            $table->string('latin')->nullable();
-            $table->text('thumbnail')->nullable();
-            $table->text('deskripsi')->nullable();
-            $table->string('uniqid');
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plants');
+        Schema::dropIfExists('locations');
     }
 };

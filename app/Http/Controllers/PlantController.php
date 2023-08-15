@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plant;
+use App\Models\Category;
+use App\Models\Location;
+use Illuminate\Http\Request;
+use App\Imports\PlantsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePlantRequest;
 use App\Http\Requests\UpdatePlantRequest;
+
+
 
 class PlantController extends Controller
 {
@@ -32,7 +39,9 @@ class PlantController extends Controller
     {
         return view('tanaman.create', [
             'title' => 'Tambah Data Tanaman',
-            'style' => 'addTanaman'
+            'style' => 'addTanaman',
+            'categories' => Category::all(),
+            'locations' => Location::all()
         ]);
     }
 
@@ -46,9 +55,12 @@ class PlantController extends Controller
     {
         $validated = $request->validate([
             'nama' => ['required', 'max:255'],
-            'khasiat' => ['required', 'max:255'],
+            'khasiat' => ['required'],
             'latin' => ['required', 'max:255'],
-            'thumbnail' => ['required', 'image', 'file', 'max:5120']
+            'thumbnail' => ['required', 'image', 'file', 'max:5120'],
+            'category_id' => ['required'],
+            'deskripsi' => ['required'],
+            'location_id' => ['required']
         ]);
 
         $validated['uniqid'] = uniqid('tanaman_');
@@ -58,6 +70,17 @@ class PlantController extends Controller
 
         Plant::create($validated);
 
+        return redirect(route('plants.index'))->with('success', 'Data tanaman berhasil ditambahkan!');
+    }
+
+    /**
+     * Store a imported resource in storage.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function import(Request $request){
+        Excel::import(new PlantsImport,request()->file('file'), 'Samping Greenhouse');
+        
         return redirect(route('plants.index'))->with('success', 'Data tanaman berhasil ditambahkan!');
     }
 
@@ -87,7 +110,9 @@ class PlantController extends Controller
         return view('tanaman.edit', [
             'title' => 'Edit Data Tanaman',
             'style' => 'addTanaman',
-            'data' => $plant
+            'data' => $plant,
+            'categories' => Category::all(),
+            'locations' => Location::all()
         ]);
     }
 
@@ -102,9 +127,12 @@ class PlantController extends Controller
     {
         $validated = $request->validate([
             'nama' => ['required', 'max:255'],
-            'khasiat' => ['required', 'max:255'],
+            'khasiat' => ['required'],
             'latin' => ['required', 'max:255'],
-            'thumbnail' => ['required', 'image', 'file', 'max:5120']
+            'thumbnail' => ['required', 'image', 'file', 'max:5120'],
+            'category_id' => ['required'],
+            'deskripsi' => ['required'],
+            'location_id' => ['required']
         ]);
 
         if ($request->file('thumbnail')) {

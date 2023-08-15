@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Tanaman;
+use App\Models\Location;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TanamanPolicy
+class LocationPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class TanamanPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tanaman  $tanaman
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Tanaman $tanaman)
+    public function view(User $user, Location $location)
     {
         //
     }
@@ -48,10 +48,10 @@ class TanamanPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tanaman  $tanaman
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Tanaman $tanaman)
+    public function update(User $user, Location $location)
     {
         //
     }
@@ -60,10 +60,10 @@ class TanamanPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tanaman  $tanaman
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Tanaman $tanaman)
+    public function delete(User $user, Location $location)
     {
         //
     }
@@ -72,10 +72,10 @@ class TanamanPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tanaman  $tanaman
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Tanaman $tanaman)
+    public function restore(User $user, Location $location)
     {
         //
     }
@@ -84,10 +84,10 @@ class TanamanPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tanaman  $tanaman
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Tanaman $tanaman)
+    public function forceDelete(User $user, Location $location)
     {
         //
     }

@@ -9,18 +9,22 @@
     </div>
 
     <div class="sidebar">
-        <a href="{{ route('plants.index') }}" class="{{ ( Request::is('plants*') ? 'active' : '') }}">
+        <a href="{{ route('dashboard') }}" class="{{ ( Request::is('dashboard*') ? 'active' : '') }}">
             <span class="material-icons-sharp">grid_view</span>
-            <h3>Data Tanaman</h3>
+            <h3>Dashboard</h3>
         </a>
         {{-- <a href="#">
             <span class="material-icons-sharp">person_outline</span>
             <h3>Customers</h3>
-        </a>
-        <a href="#">
-            <span class="material-icons-sharp">receipt_long</span>
-            <h3>Orders</h3>
         </a> --}}
+        <a href="{{ route('categories.index') }}" class="{{ ( Request::is('categories*') ? 'active' : '' ) }}">
+            <span class="material-icons-sharp">list_alt</span>
+            <h3>Kategori Tanaman</h3>
+        </a>
+        <a href="{{ route('locations.index') }}" class="{{ ( Request::is('locations*') ? 'active' : '' ) }}">
+            <span class="material-icons-sharp">pin_drop</span>
+            <h3>Lokasi Tanaman</h3>
+        </a>
         <a href="{{ route('logout') }}">
             <span class="material-icons-sharp">logout</span>
             <h3>Logout</h3>
