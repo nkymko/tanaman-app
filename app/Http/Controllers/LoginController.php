@@ -24,7 +24,7 @@ class LoginController extends Controller
 
      /**
      * Handle an authentication attempt.
-     * 
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -34,13 +34,13 @@ class LoginController extends Controller
             'email' => ['required'],
             'password' => ['required'],
         ]);
- 
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
-            return redirect()->intended('/plants')->with('success', 'Welcome back, ' . auth()->user()->name . '!');
+
+            return redirect()->intended('/dashboard')->with('success', 'Welcome back, ' . auth()->user()->name . '!');
         }
- 
+
         return back()->with(
             'loginError', 'The provided credentials do not match our records.',
         );

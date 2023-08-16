@@ -18,12 +18,9 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Login controller
 Route::controller(LoginController::class)->group(function () {
+    Route::get('/', 'index')->name('login')->middleware('guest');
     Route::get('/auth', 'index')->name('login')->middleware('guest');
     Route::post('/auth', 'authenticate')->name('auth.verif')->middleware('guest');
     Route::get('/logout', 'logout')->name('logout');
